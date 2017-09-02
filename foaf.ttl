@@ -1,0 +1,28 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://njh.me/>
+  a foaf:PersonalProfileDocument ;
+  foaf:maker <http://w3id.org/people/idafensp#me> ;
+  foaf:primaryTopic <http://w3id.org/people/idafensp#me> ;
+  foaf:title "Idafen Santana-Perez's FOAF file"@en .
+
+<http://njh.me/#me>
+  a foaf:Person ;
+  foaf:based_near <http://dbpedia.org/resource/Madrid> ;
+  foaf:family_name "Santana-Perez"^^xsd:string ;
+  foaf:givenname "Idafen"^^xsd:string ;
+  foaf:holdsAccount <https://twitter.com/idafensp> ;
+  foaf:homepage <https://idafen.wordpress.com/> ;
+  foaf:img <https://en.gravatar.com/idafen#photo-0> ;
+  foaf:mbox <mailto:isantana@fi.upm.es>, <mailto:idafensp@gmail.com> ;
+  foaf:name "Idafen Santana-Perez"^^xsd:string ;
+  foaf:nick "isantana"^^xsd:string, "idafensp"^^xsd:string ;
+  foaf:schoolHomepage <http://www.eii.ulpgc.es/>, <http://www.fi.upm.es/> ;
+  foaf:title "Dr"^^xsd:string ;
+  foaf:workplaceHomepage <http://www.oeg-upm.net/> .
+
+<http://www.oeg-upm.net/#this>
+  a foaf:Group ;
+  foaf:member <http://w3id.org/people/idafensp#me> ;
+  foaf:name "Ontology Engineering Group (OEG) "@en .
