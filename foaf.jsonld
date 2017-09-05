@@ -12,10 +12,10 @@
       "@id": "",
       "@type": "foaf:PersonalProfileDocument",
       "foaf:maker": {
-        "@id": "http://w3id.org/people/idafensp#me"
+        "@id": "http://w3id.org/people/idafensp"
       },
       "foaf:primaryTopic": {
-        "@id": "http://w3id.org/people/idafensp#me"
+        "@id": "http://w3id.org/people/idafensp"
       },
       "foaf:title": {
         "@language": "en",
@@ -23,7 +23,7 @@
       }
     },
     {
-      "@id": "#me",
+      "@id": "http://w3id.org/people/idafensp",
       "@type": "foaf:Person",
       "foaf:based_near": {
         "@id": "dbpedia:Madrid"
@@ -71,7 +71,7 @@
       "@id": "http://www.oeg-upm.net/#this",
       "@type": "foaf:Group",
       "foaf:member": {
-        "@id": "http://w3id.org/people/idafensp#me"
+        "@id": "http://w3id.org/people/idafensp"
       },
       "foaf:name": {
         "@language": "en",

@@ -2,13 +2,13 @@
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:foaf="http://xmlns.com/foaf/0.1/">
 
-  <foaf:PersonalProfileDocument rdf:about="http://njh.me/">
-    <foaf:maker rdf:resource="http://w3id.org/people/idafensp#me"/>
-    <foaf:primaryTopic rdf:resource="http://w3id.org/people/idafensp#me"/>
+  <foaf:PersonalProfileDocument rdf:about="http://w3id.org/people/idafensp">
+    <foaf:maker rdf:resource="http://w3id.org/people/idafensp"/>
+    <foaf:primaryTopic rdf:resource="http://w3id.org/people/idafensp"/>
     <foaf:title xml:lang="en">Idafen Santana-Perez's FOAF file</foaf:title>
   </foaf:PersonalProfileDocument>
 
-  <foaf:Person rdf:about="http://njh.me/#me">
+  <foaf:Person rdf:about="http://w3id.org/people/idafensp">
     <foaf:based_near rdf:resource="http://dbpedia.org/resource/Madrid"/>
     <foaf:family_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Santana-Perez</foaf:family_name>
     <foaf:givenname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Idafen</foaf:givenname>
@@ -27,7 +27,7 @@
   </foaf:Person>
 
   <foaf:Group rdf:about="http://www.oeg-upm.net/#this">
-    <foaf:member rdf:resource="http://w3id.org/people/idafensp#me"/>
+    <foaf:member rdf:resource="http://w3id.org/people/idafensp"/>
     <foaf:name xml:lang="en">Ontology Engineering Group (OEG) </foaf:name>
   </foaf:Group>
 

@@ -1,13 +1,13 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://njh.me/>
+<http://w3id.org/people/idafensp>
   a foaf:PersonalProfileDocument ;
-  foaf:maker <http://w3id.org/people/idafensp#me> ;
-  foaf:primaryTopic <http://w3id.org/people/idafensp#me> ;
+  foaf:maker <http://w3id.org/people/idafensp> ;
+  foaf:primaryTopic <http://w3id.org/people/idafensp> ;
   foaf:title "Idafen Santana-Perez's FOAF file"@en .
 
-<http://njh.me/#me>
+<http://w3id.org/people/idafensp>
   a foaf:Person ;
   foaf:based_near <http://dbpedia.org/resource/Madrid> ;
   foaf:family_name "Santana-Perez"^^xsd:string ;
@@ -24,5 +24,5 @@
 
 <http://www.oeg-upm.net/#this>
   a foaf:Group ;
-  foaf:member <http://w3id.org/people/idafensp#me> ;
+  foaf:member <http://w3id.org/people/idafensp> ;
   foaf:name "Ontology Engineering Group (OEG) "@en .
