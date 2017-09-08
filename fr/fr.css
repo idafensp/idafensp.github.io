@@ -120,6 +120,26 @@ footer {
     padding: 40px;
 }
 
+.pad-s {
+    padding: 20px;
+}
+
+.pad-l {
+    padding: 60px;
+}
+
+.icon8-s {
+    height : 1em;
+}
+
+.icon8-m {
+    height : 2em;
+}
+
+.icon8-l {
+    height : 3em;
+}
+
 /*
 For the full code about the custom search input
 check fernandotholl's snippet at

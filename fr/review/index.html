@@ -59,10 +59,124 @@
       </div>
     </nav>
 
+      
 
     <div class="container">
       
-           
+        <div class="pad-s center">   
+            <h1><!-- Inspection icon by Icons8 -->
+                <img class="icon8-m" src="https://png.icons8.com/inspection/dotty/80">New Review
+            </h1>
+        </div>
+      
+        <div class="pad-s center">   
+            <h3><!-- Inspection icon by Icons8 -->
+                <img class="icon8-s" src="https://png.icons8.com/person/dotty/80"><strong>Review issued by:</strong> Idafen Santana-P&eacute;rez (http://orcid.org/0000-0001-8296-8629)
+            </h3>
+        </div>
+        
+        <div class="form-group col-md-12">
+          <label for="paper">Reviewed item identifier:</label>
+          <input type="text" class="form-control" id="paper" placeholder="DOI or URL of the reviewed paper, dataset, &hellip;" >
+        </div>
+        
+        <div class="form-group col-md-12">    
+          <label for="content">Review content:</label>
+          <textarea class="form-control" rows="10" id="content" placeholder="Text of the review"></textarea>
+        </div>
+        
+        <div class="form-group col-md-6">
+          <label for="lang">Language:</label>
+          <select class="form-control" id="lang">
+            <option>English (en)</option>
+            <option>Espa&ntilde;ol (es)</option>
+            <option>&hellip;</option>
+          </select>
+        </div>
+        
+        <div class="form-group col-md-6">
+          <label for="date">Review date:</label>
+          <input type="text" class="form-control" id="date">
+        </div>
+        
+        
+        
+        <div class="form-group col-md-6">
+          <label for="ratingscale">Rating scale:</label>
+          <select class="form-control" id="ratingscale">
+            <option>Five stars</option>
+            <option>Accept - Reject</option>
+            <option>Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group col-md-6">
+          <label for="rating">Rate:</label>
+          <select class="form-control" id="rating">
+            <option>Strong Accept</option>
+            <option>Accept</option>
+            <option>Borderline</option>
+            <option>Weak Accept</option>
+            <option>Weak Reject</option>
+            <option>Strong Reject</option>
+          </select>
+        </div>
+        
+        
+        <div class="form-group col-md-6">
+          <label for="confidencescale">Confidence scale:</label>
+          <select class="form-control" id="confidencescale">
+            <option>Expertise</option>
+            <option>1 - 5</option>
+            <option>Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group col-md-6">
+          <label for="confidence">Confidence:</label>
+          <select class="form-control" id="confidence">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        
+        <div class="form-group col-md-12">
+          <label for="track">Tracking system:</label>
+          <select class="form-control" id="track">
+            <option>Easychair</option>
+            <option>Evise</option>
+            <option>Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group col-md-12">
+          <label for="license">License:</label>
+          <select class="form-control" id="license">
+            <option>CC-by..</option>
+            <option>GPL</option>
+            <option>Apache whatever</option>
+            <option>Custom&hellip;</option>
+          </select>
+        </div>
+        
+        <div class="form-group col-md-12">
+            <label class="checkbox-inline" for="agree">
+                <input type="checkbox" value="" id="agree">
+                As author of this review I accept the <a href="terms.html">publication terms and conditions</a> of this site. 
+            </label>
+        </div>
+        
+        
+        <div class="center">
+            <p><a class="btn btn-primary btn-lg disabled" href="#" role="button"> Submit</a></p>
+        </div>
+        
+        <div>&nbsp;<br><hr>&nbsp;</div> <!--workaround! space and hr not working, not sure why-->
+        
+
 
       <footer>
         <p>&copy; 2017 Ontology Engineering Group - UPM</p>
