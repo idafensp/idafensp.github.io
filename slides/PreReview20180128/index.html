@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>OEG - PreRview &amp; FAIR* Reviews</title>
+
+		<link rel="stylesheet" href="./reveal/css/reveal.css">
+		<link rel="stylesheet" href="./reveal/css/theme/white.css">
+		<link rel="stylesheet" href="./oeg/style.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="./reveal/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? './reveal/css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+        
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+        <script src="https://use.fontawesome.com/a27eeff0d2.js"></script>
+	</head>
+	<body>
+        <ul class="oeghead">
+          <li class="oeghead"><a class="isologo" href="http://www.oeg-upm.net/">OEG</a></li>
+          <li class="oeghead"><a href="http://fairreviews.linkeddata.es/">PreReview &amp; FAIR* Reviews</a></li>
+        </ul>
+        
+        
+		<div class="reveal">
+			<div class="slides oegslide">
+				<section id="landing">
+                    <img class="banner-m" src="img/logodoc.png">
+                    <h4 class="title">PreReview and FAIR* Reviews</h4>
+                    <p class="author"><a href="http://w3id.org/people/idafensp">Idafen Santana-Perez</a></p>
+                    <p class="contact">
+				        <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:isantana@fi.upm.es">isantana@fi.upm.es</a>
+				        <i class="ai ai-orcid" aria-hidden="true"></i> <a href="http://orcid.org/0000-0001-8296-8629">0000-0001-8296-8629</a>
+                        <i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/idafensp">@idafensp</a>
+				    </p>
+                    <p class="author"><a href="http://w3id.org/people/mpoveda">Mar&iacute;a Poveda-Villal&oacute;n</a></p>
+                    <p class="contact">
+				        <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:mpoveda@fi.upm.es">mpoveda@fi.upm.es</a>
+				        <i class="ai ai-orcid" aria-hidden="true"></i> <a href="http://orcid.org/0000-0003-3587-0367">0000-0003-3587-0367</a>
+				        <i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/MariaPovedaV">@MariaPovedaV</a>
+				    </p>
+                    <p class="contact">Ontology Engineering Group</p>
+                    <p class="contact">Universidad Polit&eacute;cnica de Madrid</p>
+                    
+                </section>
+				<section id="oeg">
+                    <h3>Who we are</h3>
+                    <ul>
+                        <li>Ontology Engineering Group</li>
+                        <ul>
+                            <li>Semantic Web</li>
+                            <li>Linked Data</li>
+                            <li>Ontologies :) </li>
+                            <ul>
+                                <li><a href="http://vocab.linkeddata.es/">Vocab</a></li>
+                                <li><a href="http://ontoology.linkeddata.es/">OnToology</a></li>
+                                <li><a href="http://oops.linkeddata.es/">OOPS! - OntOlogy Pitfall Scanner!</a></li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </section>
+				<section id="us">
+                    <h3>Who we are</h3>
+                    <ul>
+                        <li>Idafen Santana, PhD </li>
+                        <ul>
+                            <li>Reproduciblity: main topic of PhD thesis</li>
+                            <li>Open Science: open scholarly communication and experimental data</li>
+                        </ul>
+                        <li>María Poveda-Villal&oacute;n, PhD</li>
+                        <ul>
+                            <li>Ontology development: methodologies, best practices, tooling...</li>
+                            <li>Ontology evaluation</li>
+                        </ul>
+                    </ul>
+                </section>
+				<section id="approach">
+                    <h3>Our approach</h3>
+                    <ul>
+                        <li>Expose the knowledge of a scientific review</li>
+                        <ul>
+                            <li>An study conducted by an expert in the topic</li>
+                        </ul>
+                        <li>Open Reviews as Linked Data</li>
+                        <ul>
+                            <li>General-purpose model</li>
+                            <li>Allows specialization</li>
+                        </ul>
+                        <li>Structure the review and its contents</li>
+                        <ul>
+                            <li><a href="https://w3id.org/fr/def/core#content">Textual content</a></li>
+                            <li><a href="https://w3id.org/fr/def/core#RatingConcept">Ratings </a></li>
+                            <li><a href="https://w3id.org/fr/def/core#ConfidenceConcept">Confidence</a></li>
+                        </ul>
+                    </ul>
+                </section>
+				<section id="ld">
+                    <h3>Why <a href="https://www.w3.org/DesignIssues/LinkedData.html">Linked Data</a>?</h3>
+                    <ul>
+                        <li>Metadata enrichment</li>
+                        <li>Structured data</li>
+                        <li>Well-known models (i.e. vocabularies/ontologies)</li>
+                        <li>Linked (open) data on the web</li>
+                        <ul>
+                            <li>Data instead of documents</li>
+                        </ul>
+                        <li>Linked to other datasets (e.g. OpenCitations, SpringerNature, etc.)</li>
+                    </ul>
+                </section>
+				<section id="ontology">
+                    <h3>The FAIR* Reviews Ontology</h3>
+                        <map name="GraffleExport">
+                        <area shape=rect coords="584,198,745,221" href="https://w3id.org/fr/def/core#Reply">
+                        <area shape=rect coords="496,89,634,112" href="https://w3id.org/fr/def/core#content">
+                        <area shape=rect coords="62,500,258,523" href="https://w3id.org/fr/def/core#confidenceValue">
+                        <area shape=rect coords="62,474,258,501" href="https://w3id.org/fr/def/core#ConfidenceConcept">
+                        <area shape=rect coords="348,527,485,569" href="https://w3id.org/fr/def/core#DiscreteConfidenceConceptScheme">
+                        <area shape=rect coords="303,475,438,512" href="https://w3id.org/fr/def/core#ConfidenceConceptScheme">
+                        <area shape=rect coords="62,613,226,636" href="https://w3id.org/fr/def/core#ratingValue">
+                        <area shape=rect coords="62,586,226,614" href="https://w3id.org/fr/def/core#RatingConcept">
+                        <area shape=rect coords="346,627,453,669" href="https://w3id.org/fr/def/core#DiscreteRatingConceptScheme">
+                        <area shape=rect coords="303,586,466,609" href="https://w3id.org/fr/def/core#RatingConceptScheme">
+                        <area shape=rect coords="202,348,356,371" href="https://w3id.org/fr/def/core#ConveningOrganization">
+                        <area shape=rect coords="112,198,286,221" href="https://w3id.org/fr/def/core#Review">
+                        <area shape=rect coords="113,393,227,416" href="https://w3id.org/fr/def/core#TrackingSystem">
+                        </map>
+                        <img border=0 src="img/fr-vocab/fr-vocab.jpg" width="600" usemap="#GraffleExport">
+
+                </section>
+				<section>
+                    <h3>PreReview &amp; F*R</h3>
+                    <ul>
+                        <li>Use the F*R ontology for enriching reviews</li>
+                        <li>F*R platform for hosting reviews as LD</li>
+                        <li>Link reviews to other datasets in your domain</li>
+                    </ul>
+                </section>
+                <section id="ending">
+                    <img class="banner-m" src="img/logodoc.png">
+                    <h4 class="title">PreReview and FAIR* Reviews</h4>
+                    <p class="author"><a href="http://w3id.org/people/idafensp">Idafen Santana-Perez</a></p>
+                    <p class="contact">
+				        <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:isantana@fi.upm.es">isantana@fi.upm.es</a>
+				        <i class="ai ai-orcid" aria-hidden="true"></i> <a href="http://orcid.org/0000-0001-8296-8629">0000-0001-8296-8629</a>
+                        <i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/idafensp">@idafensp</a>
+				    </p>
+                    <p class="author"><a href="http://w3id.org/people/mpoveda">Mar&iacute;a Poveda-Villal&oacute;n</a></p>
+                    <p class="contact">
+				        <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:mpoveda@fi.upm.es">mpoveda@fi.upm.es</a>
+				        <i class="ai ai-orcid" aria-hidden="true"></i> <a href="http://orcid.org/0000-0003-3587-0367">0000-0003-3587-0367</a>
+				        <i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/MariaPovedaV">@MariaPovedaV</a>
+				    </p>
+                    <p class="contact">Ontology Engineering Group</p>
+                    <p class="contact">Universidad Polit&eacute;cnica de Madrid</p>
+                    
+                </section>
+			</div>
+		</div>
+        
+        <div class="footer">
+          <p>Ontology Engineering Group - <a class="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
+        </div>
+
+		<script src="./reveal/lib/js/head.min.js"></script>
+		<script src="./reveal/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: './reveal/plugin/markdown/marked.js' },
+					{ src: './reveal/plugin/markdown/markdown.js' },
+					{ src: './reveal/plugin/notes/notes.js', async: true },
+					{ src: './reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
