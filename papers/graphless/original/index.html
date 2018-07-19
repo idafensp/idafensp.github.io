@@ -20,12 +20,16 @@ Under the following terms:
         schema: http://schema.org/
         prism: http://prismstandard.org/namespaces/basic/2.0/">
     <head>
+
+
         <!-- Visualisation requirements (mandatory for optimal reading) -->
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/rash.css"/>
+        <link rel="stylesheet" href="css/cookiealert.css">
+
         
         <script src="js/jquery.min.js"> </script>
         <script src="js/bootstrap.min.js"> </script>
@@ -53,13 +57,29 @@ Under the following terms:
         <meta property="prism:keyword" content="Entity Summarisation"/>
         <meta property="prism:keyword" content="Statistical Analysis"/>
         <meta property="prism:keyword" content="Graph Exploration"/>
+
         
     </head>
     <body>
+
+        <!-- COOKIES -->
+        <div class="alert text-center cookiealert" role="alert">
+            <div class="cookiealert-container">
+                <h3>Warning!</h3>
+                <b>This paper contains the original version of the paper, as submitted for reviewers during the evaluation process for the VOILA workshop at ISWC 2018. Thus, fixed errors and improvements based on reviewers feedback are not included. For the full and final version of the paper, please <a href="../index.html" target="_blank">refer to this link</a></b><br>
+
+                <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
+                    Close
+                </button>
+            </div>
+        </div>
+        <!-- /COOKIES -->
+
+
         <!-- Abstract -->
         <section role="doc-abstract">
             <h1>Abstract</h1>
-            <p>Data visualisation over semantic datasets and Knowledge Graphs becomes a challenging task as the data volume increases. The amount of nodes and edges linking them produce overwhelming diagrams in which understanding the information displayed is cumbersome. In this work we introduce Graphless, a visualisation interface that exploits the statistical information of the usage of instances and relations to produce graphical summaries of entities. The system supports several heuristics, providing different visualisations, according to configurable parameters.<a href="#glpaper"></a> </p>
+            <p>Data visualisation over semantic datasets and Knowledge Graphs becomes a challenging task as the data volume increases. The amount of nodes and edges linking them produce overwhelming diagrams in which understanding the information displayed is cumbersome. In this work we introduce Graphless, a visualisation interface that exploits the statistical information of the usage of instances and relations to produce graphical summaries of entities. The system supports several heuristics, providing different visualisations, according to configurable parameters. </p>
         </section>
         
         <!-- Sections -->
@@ -81,7 +101,7 @@ Under the following terms:
                     </p></li>
             </ul>
             
-            We use these two factors to analyze the structure of the data graph, and based on the results obtained, the system decides which element to depict on the final diagram. From the two explanations above, we derive the following tentative assumptions for summarizing data visualizations, which are the base of our system.
+            We use these two factors to analyze the structure of the data graph, and based on the results obtained, the system decides which element to depict on the final diagram. From the two explanations above, we derive the following tentative assumptions when summarizing data visualizations, which are the base of our system.
 
             <ol>
                 <li>
@@ -92,7 +112,7 @@ Under the following terms:
                 </li>
             </ol>
             
-            The two assumptions that we introduce may seem quite straightforward, but as we discuss in this work, they allow to build informative data visualizations, by using them for analyzing the data graph. Whereas other features could be also included (e.g. ontology taxonomy, discriminative properties), these two ones are appropriate as they often apply to any given dataset. 
+            These two assumptions may seem quite straightforward, but as we discuss in this work, they allow to build informative data visualizations, by using then for analyzing the data graph. Whereas other features could be also included (e.g. ontology taxonomy, discriminative properties), these two ones are appropriate as they often apply to any given dataset. 
             
             <figure id="figure_1">
                 <p>
@@ -101,22 +121,20 @@ Under the following terms:
                 <figcaption>Graphless online GUI example.</figcaption>
             </figure>
 
-            The final goal of the system presented in this work is to generate summarized graph diagrams, to provide a better visual exploration experience. An illustrative example of the final product is shown in <a href="#figure_1"></a>, which depicts the Graphless GUI with a summary of an entity from a semantic dataset. This paper will introduce how to calculate these summaries and display them, explaining as well how the system is being currently used for the Jamendo dataset<a href="#dbtune"></a>, which contains a large collection of data about records, music artists, songs, lyrics and genres.
-
-            The reminder of this paper is organized as follows. <a href="#analysis"></a> introduces how the analysis process of the tools works. <a href="#heuristics"></a> introduces the two different algorithms for exploiting the data generated in the previous step, and <a href="#implementation"></a> describes how the system has been implemented. In <a href="#results"></a> the results of applying our approach to the aforementioned Jamendo dataset. <a href="#related"></a> compares our approach to existing ones. Finally, <a href="#discussion"></a> discusses about the advantages and drawbacks of this contribution and outlines some lines of future work.
+            The final goal of the system presented in this work is to generate summarized graph diagrams, to provide a better visual exploration experience. An illustrative example of the final product is shown in <a href="#figure_1"></a>, which depicts the Graphless GUI with a summary of an entity from a semantic dataset. The remainder of this paper will introduce how to calculate these summaries and display them, explaining as well how the system is being currently used for the Jamendo dataset<a href="#dbtune"></a>, which contains a large collection of data about records, music artists, songs, lyrics and genres.
         </section>
         
         <section id="analysis">
             <h1>Analyzing the graph</h1>
             <p>
-                In order for the interface to be able to filter and display the data properly, the target graph has to be analyzed according to the metrics described previously. This process starts by retrieving the list resources and their corresponding types from the dataset. Using this information the system counts how many times each property is instantiated, keeping track of the type of the subject of the triple as well as of the object (only for object properties). Only resources with types are thus considered in the system.
+                In order for the interface to be able to filter and display the data properly, the target graph has to be analyzed according to the metrics described previously. This process starts by retrieving the list resources and their corresponding types from the dataset. Using this information the system counts how many times each property is instantiated, keeping track of the type of the subject of the triple as well as of the object (only for object properties). 
             </p>
             <p>
-                In this process, the system records the statistical usage of properties, both as ingoing and outgoing links of instances of each type. We define a property as outgoing for a given type when an instance of such type is used as the subject of a triple. Similarly, ingoing properties are those with a resource of a given type as the object.
+                In this process, the system records the statistical usage of properties, both as ingoing and outgoing links of instances of each type. We define a property as outgoing for a given type when an instance of such type is used as the subject of a triple. Similarly, outgoing properties of a type are those that appear on triples with an object belonging to that type.
 
             </p>
             <p>
-                With this information, the system is able to generate a profile for each type in the dataset, assigning weights to each type-property combination. In order to have a relative measure, raw counts are normalized for each type, generating a weight value from 0 to 1 (that is, dividing all weights by the maximun one found for the given type). Values closer to 1 would imply highly used properties, and thus highly relevant, following the discussion introduced previous section. Those properties with weights close to 0 imply that these properties are low in relevance as they are rarely used. 
+                With this information, the system is able to generate a profile for each type in the dataset, assigning weights to each type-property combination. In order to have a relative measure, raw counts are normalized for each type, generating a weight value from 0 to 1. Values closer to 1 would imply highly used properties, and thus highly relevant, following the discussion introduced previous section. Those properties with weights close to 0 imply that these properties are low in relevance as they are rarely used. 
             </p>
 
             <p>
@@ -200,7 +218,7 @@ Under the following terms:
                         <th rowspan="1" colspan="1">Ingoing Deg.</th>
                         <th rowspan="1" colspan="1">Outgoing Deg.</th>
                         <th rowspan="1" colspan="1">Norm. In. Deg.</th>
-                        <th rowspan="1" colspan="1">Norm. Out. Deg.</th>
+                        <th rowspan="1" colspan="1">Norm. In. Deg.</th>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1"><p><em>http://dbtune.org/jamendo/record/3280</em></p></td>
@@ -278,12 +296,8 @@ Under the following terms:
                 </figure>    
             </section>
 
-            <p>
-                When comparing <a href="#fig_topk"></a> and <a href="#fig_thresh"></a>, we can observe how the system provides different visualizations based on the same dataset, by applying different heuristics. Whereas these two heuristics are rather simple and straightforward they showcase the potential of our approach. The Top-K heuristic provides a more consistent view along the graph, depicting always the same amount of nodes each step. The Threshold heuristic is intented to generate more restrictive visualizations, in which only strictly relevant nodes are depicted.
-            </p>
-            <p>
-                In the coming sections we will discuss about how this system is implemented and how the usage of a graph-oriented database allows to store the required annotations and perform queries using them efficiently.
-            </p>
+            When comparing <a href="#fig_topk"></a> and <a href="#fig_thresh"></a>, we can observe how the system provides different visualizations based on the same dataset, by applying different heuristics. In the coming sections we will discuss about how this system is implemented and how the usage of a graph-oriented database allows to store the required annotations and perform queries using them efficiently.
+
         </section>
         
         
@@ -324,7 +338,7 @@ MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) WHERE n.nodeid = '...' AND r.weight >
            		</p>
            		<p>
 
-            		As depicted in the GUI figures in this paper, the graphs are displayed in the main area, following a shade color scheme. The root node, the one the user queried, is displayed with the strongest red hue. As the distance from this root node increases, the color code of the node gets lighter and lighter. This is intended for the user to have a more clear view of which are the most relevant nodes, assuming that those closer to the main one are more informative for it. Circles and nodes are used to differentiate between object nodes and literal ones respectively. In both cases, the local name or the literal value are used as the node label. Properties are also labeled with their name and weight.
+            		As depicted in the GUI figures in this paper, the graphs are displayed in the main area, following a shade color scheme. The root node, the one the user queried, is displayed with the strongest red hue. As the distance from this root node increases, the color code of the node gets lighter and lighter. Circles and nodes are used to differentiate between object nodes and literal ones respectively. In both cases, the local name or the literal value are used as the node label. Properties are also labeled with their name and weight.
 
             	</p>
             	<p>
@@ -353,7 +367,7 @@ MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) WHERE n.nodeid = '...' AND r.weight >
             <h1>Jamendo Results</h1>
 
             <p>
-            	In this section we introduce the result of applying our approach to the Jamendo dataset, currently available in Graphless. This dataset contains information about records,  musical artists, torrents, lyrics, signals, tags, documents and tracks. It combines five different ontologies and contains 412,564 object nodes, 251,698 literals, and a total of 1,267,012 instantiated relations. 
+            	As we have mentioned before, the current version of Graphless includes the Jamendo dataset, which contains information about records,  musical artists, torrents, lyrics, signals, tags, documents and tracks. It combines five different ontologies and contains 412,564 object nodes, 251,698 literals, and a total of 1,267,012 instantiated relations. 
             </p>
 
             <p>
@@ -367,7 +381,7 @@ MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) WHERE n.nodeid = '...' AND r.weight >
         </section>
         
         <section id="related">
-            <h1>State of the art</h1>
+            <h1>Related work</h1>
 
             <p>
             	This work is inspired by the SDType <a href="#sdtype"></a> system, which uses statistical analysis of datasets to infer missing entity types. In our case, we flip this approach, using the types of the entities as indicator of the importance of the properties asserted for their individuals. This way, we can select those that are commonly used for each type.
@@ -379,10 +393,6 @@ MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) WHERE n.nodeid = '...' AND r.weight >
             
             <p>
             	Other systems have been proposed for graph summarisation in the context of Linked Data <a href="#chawuthai"></a>. This work combines graph simplification, ranking of triples, and property selection, providing a semi-automatic way of generating summaries by the user. A more recent approach <a href="#vowlzoom"></a> has been proposed for summarising semantic entities in a graphical manner. Following the VOWL <a href="#vowl"></a> notation for ontology visualization, authors introduce the usage of zooming techniques for reducing the complexity of the graph being visualized. The system summarises the graph depending on the granularity selected, rather than on the relevance of the elements that compose the graph. The challenge this system faces and solves resides in preserving the meaning of the overall graph while merging different entities into a single one.
-            </p>
-
-            <p>
-                One interesting contribution on how semantic data can be organized from a conceptual point of view is introduced in <a href="#nuzzolese"></a>. In this work authors discuss how extracting patterns from knowledge bases, such as Wikipedia and DBpedia, provides meaningful data visualizations. A comprehensive review on the state of the are on tools for graph visualization is depicted in <a href="#bikakis"></a>, in which authors describe different systems and compare their funtionalities, analyzing the visualization types they provide (e.g. buuble chart, circles, graphs, etc.) and the data types supported (e.g. spatial, graph, temporal, etc.). Our approach falls into the graph category in both dimensions. Several systems are described to support aggregation and sampling, which are techniques related to summarisation, even when they differ from the approach introduced in this work.
             </p>
         
         </section>
@@ -400,7 +410,7 @@ MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) WHERE n.nodeid = '...' AND r.weight >
             	From the technical point of view, we plan to include new features, currently under development, such as the generation of RDF snippets from the visualizations. We also plan to support new algorithms implementing novel heuristics. Our final goal is to provide a programmable interface in which developers can integrate their algorithms based on the available data properties.
             </p>
             <p>
-            	Finally, we are currently conducting a usability evaluation with several users, which will provide feedback for improving the tool. This will allow us to measure how suitable the two assumptions introduced in <a href="#intro"></a> are, as well as to explore new ones.
+            	Finally, we are currently conducting a usability evaluation with several users, which will provide feedback for improving the tool.
             </p>
         
         </section>
@@ -432,11 +442,6 @@ MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) WHERE n.nodeid = '...' AND r.weight >
                 <li id="chawuthai" role="doc-biblioentry"><p>Chawuthai R., Takeda H. (2016) RDF Graph Visualization by Interpreting Linked Data as Knowledge. In: Qi G., Kozaki K., Pan J., Yu S. (eds) Semantic Technology. JIST 2015. Lecture Notes in Computer Science, vol 9544. Springer, Cham</p></li>
 
 
-                <li id="bikakis" role="doc-biblioentry"><p>Nikos Bikakis, Timos K. Sellis: Exploration and Visualization in the Web of Big Linked Data: A Survey of the State of the Art. EDBT/ICDT Workshops 2016</p></li>
-
-
-                <li id="nuzzolese" role="doc-biblioentry"><p>Andrea Giovanni Nuzzolese, Aldo Gangemi, Valentina Presutti, Paolo Ciancarini: Encyclopedic Knowledge Patterns from Wikipedia Links. International Semantic Web Conference (1) 2011: 520-536</p></li>
-
 
 
             </ol>
@@ -444,9 +449,6 @@ MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) WHERE n.nodeid = '...' AND r.weight >
         
         <!-- Footnotes -->
         <section id="fnlist" role="doc-endnotes">
-            <section id="glpaper" role="doc-endnote">
-                <p>The online version of this paper can be found in <a href="http://w3id.org/people/idafensp/papers/graphless">http://w3id.org/people/idafensp/papers/graphless/</a></p>
-            </section>
             <section id="glonline" role="doc-endnote">
                 <p><a href="http://graphless.linkeddata.es/">http://graphless.linkeddata.es/</a></p>
             </section>
@@ -479,4 +481,5 @@ MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) WHERE n.nodeid = '...' AND r.weight >
             </section>
         </section>
     </body>
+    <script src="js/cookiealert-standalone.js"></script>
 </html>

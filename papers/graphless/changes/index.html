@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- 
+Basic RASH template - Version 1.1, December 31, 2016
+by Silvio Peroni
+
+This work is licensed under a Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/).
+You are free to:
+* Share - copy and redistribute the material in any medium or format
+* Adapt - remix, transform, and build upon the material
+for any purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+Under the following terms:
+* Attribution - You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+-->
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    prefix="
+        schema: http://schema.org/
+        prism: http://prismstandard.org/namespaces/basic/2.0/">
+    <head>
+        <!-- Visualisation requirements (mandatory for optimal reading) -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        
+        <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../css/rash.css"/>
+        
+        <script src="../js/jquery.min.js"> </script>
+        <script src="../js/bootstrap.min.js"> </script>
+        <script src="../js/rash.js"> </script>
+        
+        <!-- MathJax for multi-browser support of LaTeX formulas and MathML -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"> </script>
+        <!-- /END Visualisation requirements (mandatory for optimal reading) -->
+        
+        <!-- Metadata -->
+        <title property="dcterms:title">CHANGELOG for VOILA 2018 at ISWC -- Graphless Using Statistical Analysis and Heuristics for Visualazing Large Datasets</title>
+        
+        <!-- Author's data (one or more) -->
+        <meta about="http://w3id.org/people/idafensp" name="dc.creator" content="Idafen Santana-Perez"/>
+        <meta about="http://w3id.org/people/idafensp" property="schema:email" content="isantana@fi.upm.es"/>
+        <link about="http://w3id.org/people/idafensp" property="schema:affiliation" href="http://www.oeg-upm.net/"/>
+        
+        
+        <!-- Affiliations -->
+        <meta about="http://www.oeg-upm.net/" property="schema:name" content="Ontology Engineering Group - Universidad Polit&eacute;cnica de Madrid, Spain"/>
+        
+    </head>
+    <body>
+        <!-- Abstract -->
+        <section role="doc-abstract">
+            <p>This document contains the list of changes made from the original version of the paper, as submitted to reviewers, to the final version which includes the feedback from the review process.</p>
+            <p>The original version is available <strong><a href="../original/index.html">here</a></strong> and the final version is available <strong><a href="../index.html">here.</a></strong> Orginal comments from reviewers have not been included</p>
+        </section>
+        
+        <section id="textualelements">
+            <h1>Changes</h1>
+            <p><strong><a href="../index.html#intro">Section 1:</a></strong></p>
+            <ul>
+                <li><p> A description of the structure of the paper has been added at the end of the introduction. </p></li>
+                <li><p> We have stressed that the assumptions we state are introduced by us, and that are the motivation of the paper itself. As we are not validating them, we did not introduce them as hypothesis. </p></li>
+            </ul>
+            <p><strong><a href="../index.html#analysis">Section 2:</a></strong></p>
+            <ul>
+                <li><p>Table 2: last two column header names were duplicated. Last column renamed from &quot;Norm. In. Deg.&quot; to &quot;Norm. Out. Deg.&quot;</p></li>
+                <li><p>We have added the followging sentence to indicate how our system handles resources with no type: &quot;Only resources with types are thus considered in the system.&quot; </p></li>
+                <li><p> The definiton of ingoing and outgoing properties has been modified to make it more clear. </p></li>
+                <li><p> A better explanation on how weight normalisation for each types is performed has been added.</p></li>
+            </ul>
+            <p><strong><a href="../index.html#heuristics">Section 3:</a></strong></p>
+            <ul>
+                <li><p> A dicussion about the overall purpose of the heuristics introduced has been added at the end of the section. </p></li>
+            </ul>
+            <p><strong><a href="../index.html#implementation">Section 4:</a></strong></p>
+            <ul>
+                <li><p> A clarification on the purpose of the color scheme  used in the interface has been added. </p></li>
+            </ul>
+            <p><strong><a href="../index.html#results">Section 5:</a></strong></p>
+            <ul>
+                <li><p> The first paragraphs of the section has been modified to clarify that the section introduces the results of applying our approach to the Jamendo dataset, and that it does not cotain any evaluation results. </p></li>
+            </ul>
+            <p><strong><a href="../index.html#related">Section 6:</a></strong></p>
+            <ul>
+                <li><p> This section has been updated to stress the main differences between our approach and other. The list of references has been extended as well.</p></li>
+            </ul>
+            <p><strong><a href="../index.html#discussion">Section 7:</a></strong></p>
+            <ul>
+                <li><p> Further dicussion has been added on how the evaluation of the tool would support the assumptions introduced in this paper. </p></li>
+            </ul>
+            <p><strong>Overal changes:</strong></p>
+            <ul>
+                <li><p> Small style issues and typos have been fixed.</p></li>
+            </ul>
+        </section>
+        
+        
+    </body>
+</html>
