@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Graphless - VOILA 2018</title>
+
+		<link rel="stylesheet" href="./oeg/css/reveal.css">
+		<link rel="stylesheet" href="./oeg/css/theme/white.css">
+		<link rel="stylesheet" href="./oeg/css/style.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="./oeg/lib/css/zenburn.css">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? './oeg/css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+        
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+        <script src="https://use.fontawesome.com/a27eeff0d2.js"></script>
+	</head>
+	<body>
+        <ul class="oeghead">
+          <li class="oeghead"><a class="isologo" href="http://www.oeg-upm.net/">OEG</a></li>
+          <li class="oeghead"><a href="http://fairreviews.linkeddata.es/">Graphless - VOILA 2018</a></li>
+        </ul>
+        
+        
+		<div class="reveal">
+			<div class="slides oegslide">
+				<section id="landing">
+                    <img class="banner-m" src="img/logo.png">
+                    <h4 class="title"><strong>Graphless:</strong> Using Statistical Analysis and Heuristics for Visualizing Large Datasets</h4>
+
+                    <p><a class="author" href="http://w3id.org/people/idafensp/slides/graphless">http://w3id.org/people/idafensp/slides/graphless</a></p>
+                    <hr>
+                    
+                    <p class="author"><a href="http://w3id.org/people/idafensp">Idafen Santana-Perez</a></p>
+                    <p class="contact">
+				        <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:isantana@fi.upm.es">isantana@fi.upm.es</a>
+				        <i class="ai ai-orcid" aria-hidden="true"></i> <a href="http://orcid.org/0000-0001-8296-8629">0000-0001-8296-8629</a>
+                        <i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/idafensp">@idafensp</a>
+				    </p>
+                    <p class="contact"><a href="http://www.oeg-upm.net/"><strong>Ontology Engineering Group</strong></a> - <a href="http://www.upm.es/"><strong>Universidad Polit&eacute;cnica de Madrid</strong></a></p>
+                    
+                </section>
+
+
+
+                <section id="gl-intro1">
+                    <h3>This is Graphless...</h3>
+                    <a href="http://graphless.linkeddata.es" target="_blank"><img src="img/gui1.png" width="80%" class="img-shadow"></a>
+                </section>
+
+                <section id="gl-problem">
+                    <h3>The problem</h3>
+                    <ul>
+                        <li>Large datasets are hard to visualize</li>
+                        <ul>
+                            <li>Too many nodes and edges</li>
+                            <li>Not always the most relevant parts</li>
+                        </ul>
+                    </ul>
+                    <img src="img/overload.png" width="60%" class="img-shadow">
+                </section>
+
+
+
+                <section id="gl-goal1">
+                    <h3>The goal</h3>
+                    <img src="img/fromto.png" width="100%">
+                </section>
+
+                <section id="gl-goal2">
+                    <h3>The goal</h3>
+                    <ul>
+                        <li>Summarise graphs visualizations</li>
+                        <ul>
+                            <li>Include the most relevant nodes (a.k.a individuals)</li>
+                            <li>Draw most informative edges (a.k.a properties)</li>
+                            <li><strong>Generate scores</strong></li>
+                        </ul>
+                        <li>Rely on... <a href="https://idafensp.github.io/papers/graphless/#intro" target="_blank"><i class="fas fa-external-link-alt fa-sm"></i></a></li>
+                        <ul>
+                            <li>Connectivity degree &rarr; Nodes</li>
+                            <li>Property usage &rarr; Edges</li>
+                        </ul>
+                    </ul>
+                </section>
+
+
+
+                <section id="gl-assumption">
+                    <h2>Assumptions</h2>
+                    <ul>
+                        <li>Conectivity degree</li>
+                        <ul>
+                            <li>Ingoing and outgoing properties</li>
+                            <li><strong>The more connected a node is, the more important</strong></li>
+                        </ul>
+                        <li>Property usage</li>
+                        <ul>
+                            <li>How many times a property is used for a given type</li>
+                            <li><strong>Frequently used properties are more relevant</strong></li>
+                        </ul>
+                    </ul>
+                </section>
+
+
+                <section id="gl-prop">
+                    <figure class="oeg-tab-xl">
+                        <table>
+                            <tr>
+                                <th rowspan="1" colspan="1">Property</th>
+                                <th rowspan="1" colspan="1">Prop.Type</th>
+                                <th rowspan="1" colspan="1">Count</th>
+                                <th rowspan="1" colspan="1">Normalized weight</th>
+                            </tr>
+                            <tr>
+                                <td rowspan="1" colspan="1"><p><em>foaf:made</em></p></td>
+                                <td rowspan="1" colspan="1"><p>Outgoing</p></td>
+                                <td rowspan="1" colspan="1"><p>5786</p></td>
+                                <td rowspan="1" colspan="1"><p>1.0</p></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="1" colspan="1"><p><em>foaf:based_near</em></p></td>
+                                <td rowspan="1" colspan="1"><p>Outgoing</p></td>
+                                <td rowspan="1" colspan="1"><p>3244</p></td>
+                                <td rowspan="1" colspan="1"><p>0.5606</p></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="1" colspan="1"><p><em>foaf:name</em></p></td>
+                                <td rowspan="1" colspan="1"><p>Outgoing</p></td>
+                                <td rowspan="1" colspan="1"><p>3505</p></td>
+                                <td rowspan="1" colspan="1"><p>0.6057</p></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="1" colspan="1"><p><em></em></p></td>
+                                <td rowspan="1" colspan="1"><p>...</p></td>
+                                <td rowspan="1" colspan="1"><p>...</p></td>
+                                <td rowspan="1" colspan="1"><p>...</p></td>
+                            </tr>
+                        </table>
+                        <figcaption><a href="https://idafensp.github.io/papers/graphless/#table_analysis_props">Table 1 (shortened)<i class="fas fa-external-link-alt fa-sm"></i></a> Usage of properties for class <em>mo:MusicArtist</em></figcaption>
+                    </figure>
+                </section>
+
+                <section id="gl-prop">
+                    <figure id="table_analysis_nodes" class="oeg-tab-lg">
+                        <table>
+                            <tr>
+                                <th rowspan="1" colspan="1">Resource</th>
+                                <th rowspan="1" colspan="1">Type</th>
+                                <th rowspan="1" colspan="1">Ingoing Deg.</th>
+                                <th rowspan="1" colspan="1">Outgoing Deg.</th>
+                                <th rowspan="1" colspan="1">Norm. In. Deg.</th>
+                                <th rowspan="1" colspan="1">Norm. Out. Deg.</th>
+                            </tr>
+                            <tr>
+                                <td rowspan="1" colspan="1"><p><em>http://dbtune.org/jamendo/record/3280</em></p></td>
+                                <td rowspan="1" colspan="1"><p><em>mo:Record</em></p></td>
+                                <td rowspan="1" colspan="1"><p>1</p></td>
+                                <td rowspan="1" colspan="1"><p>109</p></td>
+                                <td rowspan="1" colspan="1"><p>0.00009</p></td>
+                                <td rowspan="1" colspan="1"><p>1.0</p></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="1" colspan="1"><p><em>http://dbtune.org/jamendo/artist/1442</em></p></td>
+                                <td rowspan="1" colspan="1"><p><em>mo:MusicArtist</em></p></td>
+                                <td rowspan="1" colspan="1"><p>25</p></td>
+                                <td rowspan="1" colspan="1"><p>54</p></td>
+                                <td rowspan="1" colspan="1"><p>0.0022</p></td>
+                                <td rowspan="1" colspan="1"><p>0.2660</p></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="1" colspan="1"><p><em>http://dbtune.org/jamendo/lyrics/23855</em></p></td>
+                                <td rowspan="1" colspan="1"><p><em>mo:Lyrics</em></p></td>
+                                <td rowspan="1" colspan="1"><p>1</p></td>
+                                <td rowspan="1" colspan="1"><p>1</p></td>
+                                <td rowspan="1" colspan="1"><p>0.00009</p></td>
+                                <td rowspan="1" colspan="1"><p>0.0091</p></td>
+                            </tr>
+                        </table>
+                        <figcaption><a href="https://idafensp.github.io/papers/graphless/#table_analysis_nodes">Table 2<i class="fas fa-external-link-alt fa-sm"></i></a> Ingoing and outgoing degree for different resources</figcaption>
+                    </figure>
+                </section>
+
+
+                <section id="gl-heuristics">
+                    <h3><a href="https://idafensp.github.io/papers/graphless/#heuristics">Heuristics<i class="fas fa-external-link-alt fa-sm"></i></a></h3>
+                    <ul>
+                        <li>Algorithms to select nodes and edges scores based on scores</li>
+                        <li>Traverse de graph</li>
+                        <ul>
+                            <li>Starting on a root node</li>
+                            <li>Limit condition</li>
+                            <li>Configurable parameters</li>
+                        </ul>
+                        <li>Two implementations</li>
+                        <ul>
+                            <li>Top-K</li>
+                            <li>Threshold</li>
+                        </ul>
+                    </ul>
+                </section>
+
+                <section id="gl-heuristics2">
+                    <h3>Top-K</h3>
+                    <ul>
+                        <li>Select K highest edges in each interation</li>
+                        <li>Stops after <em>max-depth</em> interations</li>
+                    </ul>
+                    <img src="img/topk_example.png" width="70%" class="img-shadow">
+
+                </section>
+
+                <section id="gl-heuristics3">
+                    <h3>Threshold</h3>
+                    <ul>
+                        <li>Consider only edges with score higher than a given <em>threshold</em></li>
+                        <li>Increase the threshold with a <em>decay</em> value until no new nodes are retrieved</li>
+                    </ul>
+                    <img src="img/thresh_example.png" width="60%" class="img-shadow">
+
+                </section>
+
+
+
+                <section id="gl-imp-data">
+                    <h3><a href="https://idafensp.github.io/papers/graphless/#implementation">Implementation<i class="fas fa-external-link-alt fa-sm"></i></a></h3>
+                    <ul>
+                        <li>Data management</li>
+                        <ul>
+                            <li>Neo4j database</li>
+                            <li>Support node and <strong>edge annotation</strong> (relationships)</li>
+                            <li>Simple and efficient queries &rarr; Cypher</li>
+                        </ul>
+                    </ul>
+                </section>
+
+
+                <section id="gl-imp-neo4j">
+                    <h3>Cypher queries</h3>
+                    <pre><code  class="oeg-tab-lg hljs" data-trim contenteditable>
+#TOP-K
+MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) 
+WHERE n.nodeid = '...' RETURN ... 
+ORDER BY r.weight DESC LIMIT 2
+
+#Threshold
+MATCH (n:JARLABS)-[r:JARLABS]->(x:JARLABS) 
+WHERE n.nodeid = '...' AND r.weight > 0.8 RETURN ...                   
+                    </code></pre>
+
+                    <small class="minor">(shortened using &quot;&hellip;&quot;)</small>
+                </section>
+
+                <section id="gl-imp-gui">
+                    <h3><a href="https://idafensp.github.io/papers/graphless/#implementation">Implementation<i class="fas fa-external-link-alt fa-sm"></i></a></h3>
+                    <ul>
+                        <li>User interface</li>
+                        <ul>
+                            <li>Web interface</li>
+                            <li>Menu with parameters and info</li>
+                            <li>vis.js for graph visulization</li>
+                        </ul>
+                    </ul>
+
+                    <img src="img/menu.png" width="50%" class="img-shadow">
+                </section>
+
+
+                <section id="gl-jamendo">
+                    <h3><a href="https://idafensp.github.io/papers/graphless/#results">Results<i class="fas fa-external-link-alt fa-sm"></i></a></h3>
+                    <ul>
+                        <li>Jamendo</li>
+                        <ul>
+                            <li>Music Dataset</li>
+                            <li>Records, musical artists, torrents, lyrics, signals, tags, documents and tracks.</li>
+                            <li>412K nodes, 251K literals, 1M relations.</li>
+                            <li>Public SPARQL endpoint</li>
+                        </ul>
+                        <li>Neo4j dataset available</li>
+                        <ul>
+                            <li><a href="https://doi.org/10.5281/zenodo.1284979">https://doi.org/10.5281/zenodo.1284979</a></li>
+                        </ul>
+                    </ul>
+                </section>
+
+
+
+                <section id="gl-demo">
+                    <h4>Demo (change iframe URL)</h4>
+                    <small class="minor">This takes a minute to load. If it doesn't work <a href="http://graphless.linkeddata.es" target="_blank">click here</a></small>
+
+                    <iframe src="http://localhost:8080/ldvserver/gview/index.jsp" width="100%" height="450em" class="demo-frame"></iframe>
+                </section>
+
+
+                <section id="gl-disc">
+                    <h3><a href="https://idafensp.github.io/papers/graphless/#discussion">Discussion<i class="fas fa-external-link-alt fa-sm"></i></a></h3>
+                    <ul>
+                        <li>Statistical analysis &amp; Graph traverse heuristics</li>
+                        <li>Jamendo, small dataset</li>
+                        <li>Future work</li>
+                        <ul>
+                            <li>Go big! &rarr; DBpedia</li>
+                            <li>RDF snippets</li>
+                            <li>More heuristics</li>
+                            <ul>
+                                <li>Community</li>
+                                <li>Include node degrees</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </section>
+
+
+                
+                <section id="questions" data-background="img/questions.gif">
+                        <img class="banner-m" src="img/logo_white.png">
+						<h2 style="color:white">Questions?</h2>
+				</section>
+
+                <section id="end">
+                    <img class="banner-m" src="img/logo.png">
+                    <h4 class="title"><strong>Graphless:</strong> Using Statistical Analysis and Heuristics for Visualizing Large Datasets</h4>
+
+                    <p><a class="author" href="http://w3id.org/people/idafensp/slides/graphless">http://w3id.org/people/idafensp/slides/graphless</a></p>
+                    <hr>
+                    
+                    <p class="author"><a href="http://w3id.org/people/idafensp">Idafen Santana-Perez</a></p>
+                    <p class="contact">
+                        <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:isantana@fi.upm.es">isantana@fi.upm.es</a>
+                        <i class="ai ai-orcid" aria-hidden="true"></i> <a href="http://orcid.org/0000-0001-8296-8629">0000-0001-8296-8629</a>
+                        <i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/idafensp">@idafensp</a>
+                    </p>
+                    <p class="contact"><a href="http://www.oeg-upm.net/"><strong>Ontology Engineering Group</strong></a> - <a href="http://www.upm.es/"><strong>Universidad Polit&eacute;cnica de Madrid</strong></a></p>
+                    
+                </section>
+                
+			</div>
+		</div>
+        
+        <div class="footer">
+          <p>Ontology Engineering Group - <a class="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
+        </div>
+
+		<script src="./oeg/lib/js/head.min.js"></script>
+		<script src="./oeg/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: './oeg/plugin/markdown/marked.js' },
+					{ src: './oeg/plugin/markdown/markdown.js' },
+					{ src: './oeg/plugin/notes/notes.js', async: true },
+					{ src: './oeg/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
